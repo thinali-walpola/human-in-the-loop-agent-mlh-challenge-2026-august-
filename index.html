@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Human-in-the-Loop Email Agent</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header>
+            <div class="robot">🤖</div>
+
+            <h1>Human-in-the-Loop Agent</h1>
+
+            <p>
+                An email agent that requires human approval
+                before taking a sensitive action.
+            </p>
+        </header>
+
+
+        <!-- User Request -->
+
+        <section class="card">
+
+            <h2>What should the agent do?</h2>
+
+            <textarea
+                id="userRequest"
+                placeholder="Example: Send an email to my teacher asking for a 3-day assignment extension."
+            ></textarea>
+
+            <button id="generateBtn">
+                🤖 Generate Email
+            </button>
+
+        </section>
+
+
+        <!-- Agent Status -->
+
+        <section id="agentSection" class="card hidden">
+
+            <div class="status">
+                <span id="statusIcon">🤖</span>
+
+                <div>
+                    <h2 id="statusTitle">
+                        Agent is working...
+                    </h2>
+
+                    <p id="statusText">
+                        Preparing the email.
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Generated Email -->
+
+            <div id="emailPreview" class="email-preview hidden">
+
+                <div class="email-row">
+                    <strong>To:</strong>
+                    <span id="emailTo"></span>
+                </div>
+
+                <div class="email-row">
+                    <strong>Subject:</strong>
+                    <span id="emailSubject"></span>
+                </div>
+
+                <hr>
+
+                <p id="emailBody"></p>
+
+            </div>
+
+
+            <!-- Approval -->
+
+            <div id="approvalBox" class="approval hidden">
+
+                <div class="warning">
+                    ⚠️
+                </div>
+
+                <div>
+                    <h3>Human Approval Required</h3>
+
+                    <p>
+                        Sending an email is a sensitive action.
+                        The agent must receive explicit human
+                        approval before continuing.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div id="approvalButtons" class="buttons hidden">
+
+                <button
+                    id="approveBtn"
+                    class="approve">
+                    ✓ Approve & Send
+                </button>
+
+                <button
+                    id="rejectBtn"
+                    class="reject">
+                    ✕ Reject
+                </button>
+
+            </div>
+
+
+            <!-- Result -->
+
+            <div id="result" class="result hidden"></div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
